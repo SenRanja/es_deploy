@@ -29,4 +29,5 @@ RUN pip install -r requirements.txt && pip install uwsgi && mkdir -p /var/log/uw
 # 运行 Django ,此处必须加参数0.0.0.0:8000（不可省略0.0.0.0），否则django在桥接网络环境中不对请求响应
 #CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
 # 改用uwsgi启动 uwsgi --ini /path/to/your/uwsgi.ini
-CMD ["/app/start.sh"]
+CMD ["uwsgi", "/app/uwsgi.ini"]
+#CMD ["bash", "/app/start.sh"]
