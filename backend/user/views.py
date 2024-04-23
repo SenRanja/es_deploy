@@ -185,8 +185,10 @@ def import_user_from_excel(request):
         for row in handle_sheet.iter_rows(min_row=2, values_only=True):
             try:
                 row_role = row[6].strip()
-                if row_role=="":
-                    row_role = None
+                if row_role=="老师":
+                    row_role = 'tea'
+                elif row_role=="学生":
+                    row_role = 'stu'
                 new_user_obj = User.objects.create(
                     name=row[0],
                     stu_id=row[1],
