@@ -1,0 +1,6 @@
+[submodule "es_backend"]
+	path = es_backend
+	url = https://gitee.com/bochen1993/es_backend.git
+[submodule "es_front"]
+	path = es_front
+	url = https://gitee.com/bochen1993/es_front.git
