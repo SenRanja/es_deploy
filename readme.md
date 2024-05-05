@@ -12,7 +12,7 @@ git submodule update 的操作比较耗费时间，以gitee为例，俩子仓库
 
 ### step2
 
-进入ES_FRONT项目的vite.config.js所在目录，执行命令
+本地（非服务器）进入ES_FRONT项目的vite.config.js所在目录，执行命令
     
     npm run build
 
@@ -24,6 +24,8 @@ git submodule update 的操作比较耗费时间，以gitee为例，俩子仓库
 
 如果有报错，使用`docker-compose logs`查看报错
 
+### 移除镜像(希望重新构建前必须操作步骤)
 
+    docker-compose down
 
 
