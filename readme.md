@@ -40,4 +40,19 @@ git submodule update 的操作比较耗费时间，以gitee为例，俩子仓库
 
     docker-compose down
 
+# 如果更新字段
 
+数据库是现成的，数据库文件直接在git仓库中，因此数据库无需初始化。这样做避免docker构建过程中的一些麻烦，并可以确保稳定性。
+
+但是如果要更改数据库字段，千万不要直接进数据库改字段。本项目使用django的model方式同步在数据库中，你只需要清空数据库exam_system下全部表即可。
+
+然后重新 docker-compose build 然后dcoker-compose up -d 项目即可。
+
+backend会自动执行如下语句，来初始化数据库字段。
+
+```shell
+python manage.py makemigrations user video notice question_manage exam_manage exam_score license subject_manage module system_manage system_monitor ftp testonly
+python manage.py migrate
+```
+
+部分初始化数据库字段的代码见 `deploy/tools/`
