@@ -28,6 +28,7 @@ services:
     networks:
        - es
     volumes:
+      - ./es_front/dist:/usr/share/nginx/html/
       - ./mysql/volume:/mnt
       - ./mysql/logs:/var/log/nginx/
     restart: always
